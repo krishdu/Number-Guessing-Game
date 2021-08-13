@@ -7,18 +7,18 @@ function guessNumber(){
     if(guessedNumber != '' && !isNaN(guessedNumber)){
 
         let message = document.querySelector("#message");
-
+        message.style = "display:block"
         if(guessedNumber == generatedNumber){
-            message.setAttribute("class", "bg-success")
+            message.setAttribute("class", "alert alert-success");
             message.innerHTML = "Perfect Guess";
         }else if(guessedNumber < generatedNumber){
             guessArray.push(guessedNumber);
-            message.setAttribute("class", "bg-danger")
+            message.setAttribute("class", "alert alert-danger");
             message.innerHTML = "Too Low";
             document.querySelector("#numberArray").innerHTML = guessArray;
         }else{
             guessArray.push(guessedNumber);
-            message.setAttribute("class", "bg-warning")
+            message.setAttribute("class", "alert alert-danger");
             message.innerHTML = "Too High";
             document.querySelector("#numberArray").innerHTML = guessArray;
         }
@@ -28,7 +28,7 @@ function guessNumber(){
 }
 
 function clearText(){
-    document.querySelector("#message").innerHTML = "";
+    document.querySelector("#message").style = "display:none";
 }
 
 
