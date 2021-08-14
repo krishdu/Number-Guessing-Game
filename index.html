@@ -11,31 +11,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-    <div class="container bg-light p-2 mt-2 w-50">
-
-        <h2 class="text-center">Guessing Game <i class="fa fa-gamepad" aria-hidden="true"></i></h2>
-
-        <div class="container text-center py-3">
-            <div class="row ">
-                <div class="col">
-                    <h5 id="message"></h5>
+<body onload="restorePreviousState()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 mt-2">
+                <div class="card border-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center">Dashboard</div>
+                    <div class="card-body text-success">
+                        <h5 class="card-title">Total Win: <span id="totalWin"></span></h5>
+                        <h5 class="card-title">Total Play: <span id="totalPlay"></span></h5>
+                    </div>
                 </div>
             </div>
-            <div class="row my-2">
-                <div class="col text-center">
-                    <h6 class="text-success">Previous Guess(es): <span id="numberArray" class="text-dark "></span></h6>
+            <div class="col-md-6 ">
+                <div class="container bg-light p-2 mt-2">
+                    <h2 class="text-center">Guessing Game <i class="fa fa-gamepad" aria-hidden="true"></i></h2>
+                    <div class="container text-center py-3">
+                        <div class="row ">
+                            <div class="col">
+                                <h5 id="message"></h5>
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col text-center">
+                                <h6 class="text-success">Previous Guess(es): <span id="numberArray"
+                                        class="text-dark "></span></h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-group mb-2">
+                                <input type="number" class="form-control" id="guessedNumber"
+                                    placeholder="Enter a number between (1 - 100)" onInput="clearNotification()">
+                            </div>
+                        </div>
+                        <div class="row px-2">
+                            <button type="button" class="btn btn-info text-white btn-block" onclick="guessNumber()"
+                                id="btnGuess" disabled>Guess
+                                Me</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col form-group mb-2">
-                    <input type="number" class="form-control" id="guessedNumber"
-                        placeholder="Enter a number between (1 - 100)" onInput="clearText()">
+            <div class="col-md-3 mt-2">
+                <div class="card border-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center">Attempt</div>
+                    <div class="card-body text-danger">
+                        <h5 class="card-title">Total Attempt: 15</h5>
+                        <h5 class="card-title">Attempt Left: <span id="attemptLeft"></span></h5>
+                        <button class="btn btn-danger" onClick="startGame()" id="btnStart">Start</button>
+                    </div>
                 </div>
-            </div>
-            <div class="row px-2">
-                <button type="button" class="btn btn-info text-white btn-block" onclick="guessNumber()">Guess
-                    Me</button>
             </div>
         </div>
     </div>
